@@ -1,0 +1,3419 @@
+{
+  "info": {
+    "_postman_id": "08515eaf-27fa-4996-a9a7-9a1aad85f1d4",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53135565",
+    "_collection_link": "https://go.postman.co/collection/53135565-08515eaf-27fa-4996-a9a7-9a1aad85f1d4?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "EndpointValidation",
+      "item": [
+        {
+          "name": "Inventory",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pricing",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQyNTA4OTQsImV4cCI6MTc3NDMzNzI5NH0.-pg6PPFiba9uuKryOX4JAbWhj7rgnzX2QHx2Co1I4Ss",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Credit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMwLCJlbWFpbCI6ImNhc2hpZXIzMEBsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJDYXNoaWVyIiwiZW1wbG95ZWVOdW1iZXIiOiJFTVAtMDAzMCIsImlhdCI6MTc3NDI1MTM1MywiZXhwIjoxNzc0MzM3NzUzfQ.fNOoExztA8EzoY6mXgZ1P1ctDU-eODmeNLYviPfdbnA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Authorization",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjE0ODEsImV4cCI6MTc3NTg0Nzg4MX0.bl08YFSwRxWmjG8RvYUBmGAFxubcxVAvs70FvYTSHuQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"email\": \"kabo@lewisretail.co.za\",\r\n  \"password\": \"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Stock&InventoryValidation",
+      "item": [
+        {
+          "name": "Inventory",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function(){\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Response body contains Inventory\", function(){\r",
+                  "    pm.response.to.have.jsonBody('data[0].InventoryID');\r",
+                  "    pm.response.to.have.jsonBody('data[0].ProductID');\r",
+                  "    pm.response.to.have.jsonBody('data[0].StoreID');\r",
+                  "    pm.response.to.have.jsonBody('data[0].QuantityOnHand');\r",
+                  "    pm.response.to.have.jsonBody('data[0].QuantityReserved');\r",
+                  "        pm.response.to.have.jsonBody('data[0].ReorderLevel');\r",
+                  "        pm.response.to.have.jsonBody('data[0].LastStockUpdate');\r",
+                  "        pm.response.to.have.jsonBody('data[0].SKU');\r",
+                  "        pm.response.to.have.jsonBody('data[0].ProductDescription');\r",
+                  "        pm.response.to.have.jsonBody('data[0].UnitPrice');\r",
+                  "        pm.response.to.have.jsonBody('data[0].StoreName');\r",
+                  "        pm.response.to.have.jsonBody('data[0].StoreCode');\r",
+                  "\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory Data Exists\", function(){\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\")\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InventoryID(1)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"InventoryID is 1\", function () {\r",
+                  "    pm.expect(pm.response.json().data.InventoryID).to.equal(1);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "InventoryID(200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message is correct\", function () {\r",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Not Found\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Message is correct\", function () {\r",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Inventory record does not exist.\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/200",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "200"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StockUpdatew/oCredentials",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function (){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})\r",
+                  "\r",
+                  "\r",
+                  "pm.test(\"Response body contains a error message\", function (){\r",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Bad Request\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NTQ2NzcsImV4cCI6MTc3NTg0MTA3N30.ioLuCeyXBVRrJ-PMtcbYly02LBIfRR7X8YjRSzdjlDI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StockUpdate/wCredentials",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"InventoryID is 1\", function () {\r",
+                  "            pm.expect(pm.response.json().data.InventoryID).to.eql(1);\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NTQ2NzcsImV4cCI6MTc3NTg0MTA3N30.ioLuCeyXBVRrJ-PMtcbYly02LBIfRR7X8YjRSzdjlDI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantityChange\":100,\r\n  \"reason\": \"Restock from warehouse\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "NegativeInventory(ID3)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function (){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"InventoryID is 3\", function () {\r",
+                  "        pm.expect(pm.response.json().data.InventoryID).to.eql(3);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"QuantityOnHand is 5\", function () {\r",
+                  "            pm.expect(pm.response.json().data.QuantityOnHand).to.eql(5);\r",
+                  "            });\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "NegativeInventory(ID9)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function (){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"InventoryID is 9\", function () {\r",
+                  "        pm.expect(pm.response.json().data.InventoryID).to.eql(9);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"QuantityOnHand is 12\", function () {\r",
+                  "            pm.expect(pm.response.json().data.QuantityOnHand).to.eql(12);\r",
+                  "            });\r",
+                  "            "
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LowStock",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {\r",
+                  "    pm.response.to.have.status(500);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message is correct\", function () {\r",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Service Error\");\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQ1MDgxODEsImV4cCI6MTc3NDU5NDU4MX0.EYCV6qNB9Mg7CADl-6nunH16-w9ZIhKQqETGXVh18uE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/low-stock",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "low-stock"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CashierStockUpdate",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 403\", function () {\r",
+                  "    pm.response.to.have.status(403);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function (){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Error message is forbidden\", function (){\r",
+                  "        pm.expect(pm.response.json().error).to.eql(\"Forbidden\");\r",
+                  "    });\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI4LCJlbWFpbCI6ImNhc2hpZXIyOEBsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJDYXNoaWVyIiwiZW1wbG95ZWVOdW1iZXIiOiJFTVAtMDAyOCIsImlhdCI6MTc3NTc1ODQ3OCwiZXhwIjoxNzc1ODQ0ODc4fQ.1LcS5rtVkIOW2QzHbjGchXjJUkc7OaK6KrsykLGA1CA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n  \"productId\": 5,\r\n  \"storeId\": 5,\r\n  \"quantityChange\": 50,\r\n  \"reason\": \"Restock from warehouse\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StockUpdatew/oQuantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function (){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body contains error message\", function () {\r",
+                  "        pm.expect(pm.response.text()).to.include(\"Bad Request\");\r",
+                  "        });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NTQ2NzcsImV4cCI6MTc3NTg0MTA3N30.ioLuCeyXBVRrJ-PMtcbYly02LBIfRR7X8YjRSzdjlDI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": 5,\r\n    \"storeId\": 5,\r\n    \"reason\": \"Restock from warehouse\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StockUpdatew/oReason",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function(){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body contains error message\", function(){\r",
+                  "        pm.expect(pm.response.text()).to.include(\"Bad Request\");\r",
+                  "        });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NTc1NTUsImV4cCI6MTc3NTg0Mzk1NX0.jRlb-K5CNrePRbxDacFGiXI9p0Dc-MOowJW1zcWb8BQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": 5,\r\n    \"storeId\": 5,\r\n    \"quantityChange\": 50,\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StockUpdate/wDiff-ID's",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function(){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body contains error message\", function(){\r",
+                  "        pm.expect(pm.response.text()).to.include(\"Bad Request\");\r",
+                  "        });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NTc1NTUsImV4cCI6MTc3NTg0Mzk1NX0.jRlb-K5CNrePRbxDacFGiXI9p0Dc-MOowJW1zcWb8BQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": 1,\r\n    \"storeId\": 5,\r\n    \"quantityChange\": 50,\r\n    \"reason\": \"Restock from warehouse\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ManagerStockUpdate",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 403\", function () {\r",
+                  "    pm.response.to.have.status(403);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is under 2 seconds\", function(){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Error message is correct\", function(){\r",
+                  "        pm.expect(pm.response.json().error).to.eql(\"Forbidden\");\r",
+                  "        });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImVtYWlsIjoibWFuYWdlcjlAbGV3aXNyZXRhaWwuY28uemEiLCJyb2xlIjoiU3RvcmVNYW5hZ2VyIiwiZW1wbG95ZWVOdW1iZXIiOiJFTVAtMDAwOSIsImlhdCI6MTc3NTc1ODE3OSwiZXhwIjoxNzc1ODQ0NTc5fQ.zxKLT8o54ATeyoz6y-D39v26lOQyKDB6ifuXR-16Naw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n  \"productId\": 7,\r\n  \"storeId\": 7,\r\n  \"quantityChange\": 50,\r\n  \"reason\": \"Restock from warehouse\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StockUpdate/wInvalidReason",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is under 2 seconds\", function (){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message is correct\", function (){\r",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Not Found\");\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NTg1OTUsImV4cCI6MTc3NTg0NDk5NX0.Se9kO3LxfM4g578ZqSQ_dkTu0iS4-819krKd6yzaCgI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n  \"productId\": 5,\r\n  \"storeId\": 5,\r\n  \"quantityChange\": 50,\r\n  \"reason\": \"bubbles\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StockUpdatew/NegativeQuantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function(){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body contains error message\", function(){\r",
+                  "        pm.expect(pm.response.text()).to.include(\"Bad Request\");\r",
+                  "        });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NTg1OTUsImV4cCI6MTc3NTg0NDk5NX0.Se9kO3LxfM4g578ZqSQ_dkTu0iS4-819krKd6yzaCgI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantityChange\": -1000,\r\n  \"reason\": \"Restock from warehouse\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Pricing&RevenueIntegrity",
+      "item": [
+        {
+          "name": "PriceCalculation",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Total is calculated correctly\", function () {\r",
+                  "            const response = pm.response.json();\r",
+                  "            const total = response.data.total;\r",
+                  "            const expectedTotal = 9831.4075;\r",
+                  "            pm.expect(total).to.equal(expectedTotal);\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMwLCJlbWFpbCI6ImNhc2hpZXIzMEBsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJDYXNoaWVyIiwiZW1wbG95ZWVOdW1iZXIiOiJFTVAtMDAzMCIsImlhdCI6MTc3NDM2MDQ2MSwiZXhwIjoxNzc0NDQ2ODYxfQ.7LasyvtxCHPFz8hAcUQMRS6M4ev8d54Qfgpa-dlOFzs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=1&customerId=1&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                },
+                {
+                  "key": "customerId",
+                  "value": "1"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PriceCalculation/wDiffNumbers",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function (){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Total is calculated correctly\", function () {\r",
+                  "        const response = pm.response.json();\r",
+                  "        const total = response.data.total;\r",
+                  "        const expectedTotal = 8232.97075;\r",
+                  "        pm.expect(total).to.equal(expectedTotal);\r",
+                  "        });\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=10&customerId=50&quantity=70",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "10"
+                },
+                {
+                  "key": "customerId",
+                  "value": "50"
+                },
+                {
+                  "key": "quantity",
+                  "value": "70"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "VAT-Rates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});",
+                  "",
+                  "pm.test(\"VAT rates data is present\", function () {",
+                  "    pm.expect(pm.response.json().data).to.not.be.empty;",
+                  "});",
+                  "",
+                  "pm.test(\"VAT rates must contain 0, 5, 15\", function () {",
+                  "    const data = pm.response.json().data;",
+                  "    const allowedRates = [0, 5, 15];",
+                  "",
+                  "    data.forEach((item, index) => {",
+                  "        pm.expect(item.Percentage, `Invalid VAT rate at index ${index}`)",
+                  "        .to.be.oneOf(allowedRates);",
+                  "    });",
+                  "});",
+                  "",
+                  "pm.test(\"VAT categories must contain Reduced, Standard, Zero-Rated, duplicates flagged\", function () {",
+                  "    const response = pm.response.json();",
+                  "    const allowedCategories = [\"Reduced\", \"Standard\", \"Zero-Rated\"];",
+                  "",
+                  "    const counts = {};",
+                  "",
+                  "    response.data.forEach((item, index) => {",
+                  "        pm.expect(allowedCategories, `Invalid VAT category at index ${index}: ${item.Category}`)",
+                  "            .to.include(item.Category);",
+                  "",
+                  "        counts[item.Category] = (counts[item.Category] || 0) + 1;",
+                  "    });",
+                  "",
+                  "    const duplicates = Object.entries(counts)",
+                  "        .filter(([category, count]) => count > 1)",
+                  "        .map(([category, count]) => `${category} (${count} times)`);",
+                  "",
+                  "    if (duplicates.length > 0) {",
+                  "        console.log(\"Duplicate categories found: \" + duplicates.join(\", \"));",
+                  "    }",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/vat-rates",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "vat-rates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PriceCalculation/wNegativeValues",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Error message is correct\", function () {\r",
+                  "            pm.expect(pm.response.json().error).to.eql(\"Not Found\");\r",
+                  "            });\r",
+                  "            "
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=-10&customerId=-50&quantity=-70",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "-10"
+                },
+                {
+                  "key": "customerId",
+                  "value": "-50"
+                },
+                {
+                  "key": "quantity",
+                  "value": "-70"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingDiscountw/oAuthorization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response is under 2 seconds\", function (){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Error message that shows up is correct\", function (){\r",
+                  "        pm.expect(pm.response.json().error).to.eql(\"Unauthorized\");\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"customerTier\": \"Premium\",\r\n  \"discountPercentage\": 5,\r\n  \"bulkQuantityThreshold\": 10,\r\n  \"bulkDiscountPercentage\": 2.5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingDiscount",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 2 seconds\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "        pm.test(\"ProductID is a number\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.ProductID).to.be.a('number');",
+                  "});",
+                  "",
+                  "pm.test(\"CustomerTier is a string\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.CustomerTier).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test(\"DiscountPercentage is a number\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.DiscountPercentage).to.be.a('number');",
+                  "});",
+                  "",
+                  "pm.test(\"BulkDiscountPercentage is a number\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.BulkDiscountPercentage).to.be.a('number');",
+                  "});",
+                  "",
+                  "pm.test(\"BulkDiscountPercentage is greater than or equal to 0\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.BulkDiscountPercentage).to.be.gte(0);",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NTg1OTUsImV4cCI6MTc3NTg0NDk5NX0.Se9kO3LxfM4g578ZqSQ_dkTu0iS4-819krKd6yzaCgI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"customerTier\": \"Premium\",\r\n  \"discountPercentage\": 5,\r\n  \"bulkQuantityThreshold\": 10,\r\n  \"bulkDiscountPercentage\": 2.5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingDiscount/wNon-ExistentProduct",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response should have a status code of 401\", function (){\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response should be under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response should have an error message\", function (){\r",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Not Found\");\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjE0ODEsImV4cCI6MTc3NTg0Nzg4MX0.bl08YFSwRxWmjG8RvYUBmGAFxubcxVAvs70FvYTSHuQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 100,\r\n  \"customerTier\": \"Standard\",\r\n  \"discountPercentage\": 5,\r\n  \"bulkQuantityThreshold\": 10,\r\n  \"bulkDiscountPercentage\": 2.5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingDiscount/wNoDiscount",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "    });",
+                  "",
+                  "    pm.test(\"Response time is less than 2 seconds\", function () {",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "        });",
+                  "",
+                  "        pm.test(\"ProductID is a number\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.ProductID).to.be.a('number');",
+                  "});",
+                  "",
+                  "pm.test(\"CustomerTier is a string\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.CustomerTier).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test(\"DiscountPercentage is a number\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.DiscountPercentage).to.be.a('number');",
+                  "});",
+                  "",
+                  "pm.test(\"BulkDiscountPercentage is a number\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.BulkDiscountPercentage).to.be.a('number');",
+                  "});",
+                  "",
+                  "pm.test(\"BulkDiscountPercentage is equal to DiscountPercentage\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data.BulkDiscountPercentage).to.equal(jsonData.data.DiscountPercentage);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjE0ODEsImV4cCI6MTc3NTg0Nzg4MX0.bl08YFSwRxWmjG8RvYUBmGAFxubcxVAvs70FvYTSHuQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"customerTier\": \"Premium\",\r\n  \"bulkQuantityThreshold\": 10,\r\n  \"bulkDiscountPercentage\": 2.5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "StandardPricingDiscount",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"PricingRuleID is a number\", function () {\r",
+                  "            pm.expect(pm.response.json().data.PricingRuleID).to.be.a('number');\r",
+                  "            });\r",
+                  "\r",
+                  "            pm.test(\"ProductID is a number\", function () {\r",
+                  "                pm.expect(pm.response.json().data.ProductID).to.be.a('number');\r",
+                  "                });\r",
+                  "\r",
+                  "                pm.test(\"CustomerTier is Standard\", function () {\r",
+                  "                const jsonData = pm.response.json();\r",
+                  "                pm.expect(jsonData.data.CustomerTier).to.equal('Standard');\r",
+                  "                });\r",
+                  "\r",
+                  "                pm.test(\"DiscountPercentage is 2\", function () {\r",
+                  "                    pm.expect(pm.response.json().data.DiscountPercentage).to.equal(2)\r",
+                  "                });\r",
+                  "\r",
+                  "                \r",
+                  "                   \r",
+                  "\r",
+                  "                \r",
+                  "\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjE0ODEsImV4cCI6MTc3NTg0Nzg4MX0.bl08YFSwRxWmjG8RvYUBmGAFxubcxVAvs70FvYTSHuQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"customerTier\": \"Standard\",\r\n  \"discountPercentage\": 2.00,\r\n  \"bulkQuantityThreshold\": 3,\r\n  \"bulkDiscountPercentage\": 1.50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PremiumPricingDiscount",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"PricingRuleID is a number\", function () {\r",
+                  "            pm.expect(pm.response.json().data.PricingRuleID).to.be.a('number');\r",
+                  "            });\r",
+                  "\r",
+                  "            pm.test(\"ProductID is a number\", function () {\r",
+                  "                pm.expect(pm.response.json().data.ProductID).to.be.a('number');\r",
+                  "                });\r",
+                  "\r",
+                  "                pm.test(\"CustomerTier is Standard\", function () {\r",
+                  "                const jsonData = pm.response.json();\r",
+                  "                pm.expect(jsonData.data.CustomerTier).to.equal('Premium');\r",
+                  "                });\r",
+                  "\r",
+                  "                pm.test(\"DiscountPercentage is 6\", function () {\r",
+                  "                    pm.expect(pm.response.json().data.DiscountPercentage).to.equal(6)\r",
+                  "                });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjE0ODEsImV4cCI6MTc3NTg0Nzg4MX0.bl08YFSwRxWmjG8RvYUBmGAFxubcxVAvs70FvYTSHuQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"customerTier\": \"Premium\",\r\n  \"discountPercentage\": 6.00,\r\n  \"bulkQuantityThreshold\": 3,\r\n  \"bulkDiscountPercentage\": 3.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "VipPricingDiscount",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"PricingRuleID is a number\", function () {\r",
+                  "            pm.expect(pm.response.json().data.PricingRuleID).to.be.a('number');\r",
+                  "            });\r",
+                  "\r",
+                  "            pm.test(\"ProductID is a number\", function () {\r",
+                  "                pm.expect(pm.response.json().data.ProductID).to.be.a('number');\r",
+                  "                });\r",
+                  "\r",
+                  "                pm.test(\"CustomerTier is Standard\", function () {\r",
+                  "                const jsonData = pm.response.json();\r",
+                  "                pm.expect(jsonData.data.CustomerTier).to.equal('VIP');\r",
+                  "                });\r",
+                  "\r",
+                  "                pm.test(\"DiscountPercentage is 11\", function () {\r",
+                  "                    pm.expect(pm.response.json().data.DiscountPercentage).to.equal(11)\r",
+                  "                });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjE0ODEsImV4cCI6MTc3NTg0Nzg4MX0.bl08YFSwRxWmjG8RvYUBmGAFxubcxVAvs70FvYTSHuQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"customerTier\": \"VIP\",\r\n  \"discountPercentage\": 11.00,\r\n  \"bulkQuantityThreshold\": 3,\r\n  \"bulkDiscountPercentage\": 5.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingRuleUpdatew/oAuthorization",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response is under 2 seconds\", function (){\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Error message that shows up is correct\", function (){\r",
+                  "        pm.expect(pm.response.json().error).to.eql(\"Unauthorized\");\r",
+                  "    });\r",
+                  "    "
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"discountPercentage\": 0,\r\n  \"bulkQuantityThreshold\": 0,\r\n  \"bulkDiscountPercentage\": 0,\r\n  \"isActive\": true\r\n}\r\n"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingRuleUpdatew/oBody",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    })\r",
+                  "\r",
+                  "    pm.test(\"Response body contains a error message\", function (){\r",
+                  "    pm.expect(pm.response.json().error).to.eql(\"Bad Request\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "BulkQuantity/wMultipleDecimals",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"DiscountPercentage is a number\", function () {\r",
+                  "            pm.expect(pm.response.json().data.DiscountPercentage).to.be.a('number');\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"customerTier\": \"Premium\",\r\n  \"discountPercentage\": 5.00000000000,\r\n  \"bulkQuantityThreshold\": 10.00,\r\n  \"bulkDiscountPercentage\": 2.5\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "BulkQuantity/wNoValue",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"BulkQuantityThreshold is null\", function () {\r",
+                  "        pm.expect(pm.response.json().data.BulkQuantityThreshold).to.be.null;    \r",
+                  "        });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"productId\": 1,\r\n  \"customerTier\": \"Standard\",\r\n  \"discountPercentage\": 5\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingRuleUpdate",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"DiscountPercentage is updated to 5\", function () {\r",
+                  "        pm.expect(pm.response.json().data.DiscountPercentage).to.equal(5);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"BulkDiscountPercentage is updated to 2.5\", function () {\r",
+                  "            pm.expect(pm.response.json().data.BulkDiscountPercentage).to.equal(2.5);\r",
+                  "            });\r",
+                  "\r",
+                  "            pm.test(\"IsActive is updated to false\", function () {\r",
+                  "                pm.expect(pm.response.json().data.IsActive).to.equal(false);\r",
+                  "                });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n  \"discountPercentage\": 5.00,\r\n  \"bulkQuantityThreshold\": 5,\r\n  \"bulkDiscountPercentage\": 2.50,\r\n  \"isActive\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingRuleUpdate/wInvalidID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Error message shown is correct\", function () {\r",
+                  "            pm.expect(pm.response.json().error).to.eql(\"Not Found\");\r",
+                  "            });\r",
+                  "\r",
+                  "            pm.test(\"Message shown is correct\", function () {\r",
+                  "                pm.expect(pm.response.json().message).to.eql(\"Pricing rule not found.\");\r",
+                  "                });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n  \"discountPercentage\": 5.00,\r\n  \"bulkQuantityThreshold\": 5,\r\n  \"bulkDiscountPercentage\": 2.50,\r\n  \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts/1000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts",
+                "1000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PricingUpdate/wMultipleIDs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Response body contains error message\", function () {\r",
+                  "            pm.expect(pm.response.text()).to.include(\"Cannot PUT /api/v1/pricing/discounts/1/2/3\");\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n  \"discountPercentage\": 5.00,\r\n  \"bulkQuantityThreshold\": 5,\r\n  \"bulkDiscountPercentage\": 2.50,\r\n  \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts/1/2/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts",
+                "1",
+                "2",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ProductVerification(ID1)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"ProductID is 1\", function () {\r",
+                  "            pm.expect(pm.response.json().data.ProductID).to.equal(1);\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/products/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PriceCalculationForQuantity>100",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 2 seconds\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "pm.test(\"Total is calculated correctly\", function () {",
+                  "    const responseData = pm.response.json();",
+                  "    pm.expect(responseData).to.have.property(\"data\");",
+                  "",
+                  "    const data = responseData.data;",
+                  "    const items = Array.isArray(data) ? data : [data];",
+                  "",
+                  "    const EPS = 1e-6;",
+                  "",
+                  "    items.forEach((item, index) => {",
+                  "",
+                  "        let lineTotal;",
+                  "",
+                  "        if (typeof item.lineTotal === \"number\") {",
+                  "            lineTotal = item.lineTotal;",
+                  "        } else {",
+                  "            pm.expect(item, 'Missing unitPrice field in response data').to.have.property(\"unitPrice\");",
+                  "            pm.expect(item, 'Missing quantity field in response data').to.have.property(\"quantity\");",
+                  "        }",
+                  "",
+                  "        const discountAmount = item.discountAmount || 0;",
+                  "        const bulkDiscountAmount = item.bulkDiscountAmount || 0;",
+                  "        const vatAmount = item.vatAmount || 0;",
+                  "",
+                  "        const expectedTotal = lineTotal - (discountAmount + bulkDiscountAmount) + vatAmount;",
+                  "",
+                  "        pm.expect(item, 'Missing discountAmount field in response data').to.have.property(\"discountAmount\");",
+                  "        pm.expect(item, 'Missing bulkDiscountAmount field in response data').to.have.property(\"bulkDiscountAmount\");",
+                  "        pm.expect(item, 'Missing vatAmount field in response data').to.have.property(\"vatAmount\");",
+                  "        pm.expect(item, 'Missing total field in response data').to.have.property(\"total\");",
+                  "",
+                  "        const diff = Math.abs(item.total - expectedTotal);",
+                  "",
+                  "        pm.expect(diff, 'Total field in response data does not match expected value').to.be.below(EPS);",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=1&customerId=1&quantity=100",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                },
+                {
+                  "key": "customerId",
+                  "value": "1"
+                },
+                {
+                  "key": "quantity",
+                  "value": "100"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Credit&DebtGovernance",
+      "item": [
+        {
+          "name": "CreditAccounts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function() {\r",
+                  "    pm.response.to.have.status(200)\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function() {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200)\r",
+                  "    })\r",
+                  "\r",
+                  "    pm.test(\"Response body contains thirty two credit accounts\", function() {\r",
+                  "        pm.expect(pm.response.json().data.length).to.equal(32)\r",
+                  "        })\r",
+                  "        "
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "OrderForCustomer/wInsufficientFunds(ID8)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function (){\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body is correct\", function () {\r",
+                  "        pm.expect(pm.response.json()).to.have.property('status', 'UNSUCCESSFUL');\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDAzNjgsImV4cCI6MTc3NTYyNjc2OH0.0C-q5GNW-m-Roq69OVDvTDr0rkRIClxSUdWqJ-W615o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 8,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 2,\r\n  \"reference\":\"ORD-EXTRA-001\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Orders/wExpiredCredit(ID6)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function (){\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body is correct\", function () {\r",
+                  "        pm.expect(pm.response.json()).to.have.property('status', 'UNSUCCESSFUL');\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDgzNzMsImV4cCI6MTc3NTYzNDc3M30.EtrmKKjNyL4cyiXfK8u8x1tRDag81mfwNNBHsrFEUb0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 6,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 2,\r\n  \"reference\": \"ORD-EXP-001\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Order/wFrozenCredit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function (){\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body is correct\", function () {\r",
+                  "        pm.expect(pm.response.json()).to.have.property('status', 'UNSUCCESSFUL');\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDAzNjgsImV4cCI6MTc3NTYyNjc2OH0.0C-q5GNW-m-Roq69OVDvTDr0rkRIClxSUdWqJ-W615o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 22,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 2,\r\n  \"reference\":\"ORD-FROZEN-001\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreditAccount(ID1)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is correct\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 2 seconds\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "const dataArray = [pm.response.json().data];",
+                  "",
+                  "dataArray.forEach((item, index) => {",
+                  "",
+                  "    pm.test(`Item ${index} credit rules are valid`, function () {",
+                  "",
+                  "        pm.expect(item.CreditLimit).to.be.at.least(0);",
+                  "",
+                  "        pm.expect(item.CurrentBalance).to.be.at.most(item.CreditLimit);",
+                  "",
+                  "        pm.expect([\"Active\", \"Inactive\", \"Suspended\"]).to.include(item.CreditStatus);",
+                  "",
+                  "    });",
+                  "",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreditApply/wExistingCustomer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response status code is 409\", function () {\r",
+                  "    pm.response.to.have.status(409);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body contains error message\", function () {\r",
+                  "        pm.expect(pm.response.text()).to.include(\"Conflict\");\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Response body contains message\", function () {\r",
+                  "            pm.expect(pm.response.text()).to.include(\"Customer already has a credit account.\");\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 1,\r\n  \"requestedLimit\": 50000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreditApply/wNewCustomer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is below 2 seconds\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "const responseJson = pm.response.json();",
+                  "const data = responseJson.data;",
+                  "const dataArray = Array.isArray(data) ? data : (data !== undefined && data !== null ? [data] : []);",
+                  "",
+                  "dataArray.forEach((item, index) => {",
+                  "",
+                  "    pm.test(`Item ${index} credit rules are valid`, function () {",
+                  "",
+                  "        pm.expect(item.CreditLimit).to.be.at.least(0);",
+                  "",
+                  "        pm.expect(item.CurrentBalance).to.be.at.most(item.CreditLimit);",
+                  "",
+                  "        pm.expect([\"Active\", \"Inactive\", \"Suspended\", \"Pending\"]).to.include(item.CreditStatus);",
+                  "",
+                  "    });",
+                  "",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 41,\r\n  \"requestedLimit\": 50000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreditApply/wNoLimitValue",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Error message is correct\", function () {\r",
+                  "            pm.expect(pm.response.json().error).to.eql(\"Bad Request\");\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\":50,\r\n  \"requestedLimit\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreditApply/wNegativeLimit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time is under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Error message is correct\", function () {\r",
+                  "            pm.expect(pm.response.json().error).to.eql(\"Bad Request\");\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\":45,\r\n  \"requestedLimit\": -1000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreditStatusUpdate(ID7)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time us under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Credit status is suspended\", function () {\r",
+                  "            pm.expect(pm.response.json().data.CreditStatus).to.eql(\"Suspended\");\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"Suspended\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/7/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "7",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Order/wSuspendedCredit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function (){\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body is correct\", function () {\r",
+                  "        pm.expect(pm.response.json()).to.have.property('status', 'UNSUCCESSFUL');\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDAzNjgsImV4cCI6MTc3NTYyNjc2OH0.0C-q5GNW-m-Roq69OVDvTDr0rkRIClxSUdWqJ-W615o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 7,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 2,\r\n  \"reference\": \"ORD-SUS-001\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "BulkOrder/wNoCredit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function (){\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body is correct\", function () {\r",
+                  "        pm.expect(pm.response.json()).to.have.property('status', 'UNSUCCESSFUL');\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 1,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 20\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders/bulk",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders",
+                "bulk"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CreditStatusUpdate(ID10)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response time us under 2 seconds\", function () {\r",
+                  "        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "        });\r",
+                  "\r",
+                  "        pm.test(\"Credit status is closed\", function () {\r",
+                  "            pm.expect(pm.response.json().data.CreditStatus).to.eql(\"Closed\");\r",
+                  "            });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"Closed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/10/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "10",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Order/wClosedCredit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function (){\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "    pm.test(\"Response body is correct\", function () {\r",
+                  "        pm.expect(pm.response.json()).to.have.property('status', 'UNSUCCESSFUL');\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 10,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 2,\r\n  \"reference\": \"ORD-CLOSED-001\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AllOrders",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Totals is correct\", function () {\r",
+                  "    const data = pm.response.json().data\r",
+                  "\r",
+                  "    data.forEach(function(item) {\r",
+                  "        pm.expect(item).to.have.property(\"UnitPrice\");\r",
+                  "        pm.expect(item).to.have.property(\"DiscountAmount\");\r",
+                  "        pm.expect(item).to.have.property(\"VATAmount\");\r",
+                  "\r",
+                  "        pm.expect((item.UnitPrice - item.DiscountAmount)*0.15).to.equal(item.VATAmount);\r",
+                  "        pm.expect(item.UnitPrice - item.DiscountAmount + item.VATAmount).to.equal(item.TotalAmount)\r",
+                  "    })\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU3NjMyNTAsImV4cCI6MTc3NTg0OTY1MH0.beWr_3DQCxKW7FDrP450VhvBpQc6p6RnBw5Lh1yWTOA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
