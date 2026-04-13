@@ -1,0 +1,7 @@
+USE LewisRetail;
+GO
+
+SELECT SKU, COUNT(*) AS CountSKU
+FROM Products
+GROUP BY SKU
+HAVING COUNT(*) > 1;
